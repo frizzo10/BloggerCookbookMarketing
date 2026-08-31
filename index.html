@@ -8,6 +8,31 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://bloggercookbook.com/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bloggercookbook.com/">
+<meta property="og:title" content="Blogger Cookbook — Get paid. Get reach. Fight scrapers.">
+<meta property="og:description" content="Blogger Cookbook puts your recipes in front of families who actually cook them, pays you 30% of revenue your content drives, and fights the scrapers stealing your work.">
+<meta property="og:image" content="https://bloggercookbook.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blogger Cookbook — Get paid. Get reach. Fight scrapers.">
+<meta name="twitter:description" content="Blogger Cookbook puts your recipes in front of families who actually cook them, pays you 30% of revenue your content drives, and fights the scrapers stealing your work.">
+<meta name="twitter:image" content="https://bloggercookbook.com/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Blogger Cookbook",
+  "url": "https://bloggercookbook.com/",
+  "description": "Blogger Cookbook connects food bloggers' recipes to families using Fern, with full attribution and a 30% revenue share.",
+  "sameAs": ["https://myaifern.com/"]
+}
+</script>
 <style>
 :root {
   --forest:  #1C3A1A;
@@ -318,20 +343,45 @@ footer{background:var(--ink);padding:3rem;color:rgba(255,255,255,.35);}
   .ai-inner{grid-template-columns:1fr;}
   .brand-inner{grid-template-columns:1fr;}
   .steps{grid-template-columns:repeat(2,1fr);}
+  .nav-toggle{display:flex;}
+  .nav-links{
+    position:fixed;top:0;right:-100%;height:100vh;width:70%;
+    background:var(--forest);flex-direction:column;align-items:flex-start;
+    padding:6rem 2rem;gap:1.5rem;transition:right .3s ease;
+    box-shadow:-8px 0 30px rgba(0,0,0,.3);z-index:99;
+  }
+  .nav-links.open{right:0;}
+  .nav-links a{font-size:1.05rem;}
+  .wm-widget-btns{flex-wrap:wrap;}
 }
+.skip-link{
+  position:absolute;left:-9999px;top:0;background:var(--forest);color:var(--cream);
+  padding:12px 20px;z-index:200;border-radius:0 0 8px 0;
+}
+.skip-link:focus{left:0;}
+.nav-toggle{
+  display:none;flex-direction:column;justify-content:space-between;
+  width:24px;height:18px;background:none;border:none;cursor:pointer;padding:0;
+}
+.nav-toggle span{display:block;height:2px;width:100%;background:var(--cream);border-radius:2px;}
 </style>
 </head>
 <body>
 
-<nav>
+<a href="#main" class="skip-link">Skip to content</a>
+<nav aria-label="Primary">
   <a href="/" class="nav-logo">blogger cookbook</a>
+  <button class="nav-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
   <ul class="nav-links">
     <li><a href="#reach">Reach</a></li>
     <li><a href="#scrapers">Scrapers</a></li>
     <li><a href="#revenue">Revenue</a></li>
-    <li><a href="#join" class="nav-cta">Get listed free →</a></li>
+    <li><a href="#join" class="nav-cta">Apply — free →</a></li>
   </ul>
 </nav>
+<main id="main">
 
 <!-- HERO -->
 <section class="hero" style="padding-top:9rem;padding-bottom:6rem;">
@@ -359,7 +409,7 @@ footer{background:var(--ink);padding:3rem;color:rgba(255,255,255,.35);}
   </div>
 
   <div style="display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;">
-    <a href="#join" class="btn-primary">Get listed — it's free →</a>
+    <a href="#join" class="btn-primary">Apply to get listed — free →</a>
     <a href="#reach" class="btn-ghost">See how it works</a>
   </div>
 </section>
@@ -398,16 +448,12 @@ footer{background:var(--ink);padding:3rem;color:rgba(255,255,255,.35);}
 
     <div class="scraper-stat">
       <div class="scraper-stat-card fade-up">
-        <div class="scraper-stat-num">63%</div>
-        <div class="scraper-stat-label">of food blog content is scraped within 48 hours of publishing</div>
-      </div>
-      <div class="scraper-stat-card fade-up">
-        <div class="scraper-stat-num">0¢</div>
-        <div class="scraper-stat-label">paid to bloggers by scraper sites for the content they steal</div>
-      </div>
-      <div class="scraper-stat-card fade-up">
         <div class="scraper-stat-num">30%</div>
         <div class="scraper-stat-label">revenue share paid to you by Blogger Cookbook every month</div>
+      </div>
+      <div class="scraper-stat-card fade-up">
+        <div class="scraper-stat-num">0%</div>
+        <div class="scraper-stat-label">of scraper-site revenue ever makes it back to the blogger they copied</div>
       </div>
     </div>
   </div>
@@ -565,7 +611,7 @@ footer{background:var(--ink);padding:3rem;color:rgba(255,255,255,.35);}
     <div class="brand-inner">
       <div>
         <div class="section-eyebrow fade-up">Brand Studio</div>
-        <h2 class="fade-up">Your widget.<br>Your traffic back.<br><em>Scrapers blocked.</em></h2>
+        <h2 class="fade-up">Your widget.<br>Your traffic back.<br><em>Harder to steal.</em></h2>
         <p class="section-sub fade-up" style="margin-bottom:.5rem;">Scrapers steal your text. They cannot steal your Brand Studio widget — or the relationship it creates with your readers.</p>
         <div class="brand-points">
           <div class="brand-point fade-up">
@@ -578,8 +624,8 @@ footer{background:var(--ink);padding:3rem;color:rgba(255,255,255,.35);}
           <div class="brand-point fade-up">
             <div class="bp-icon">🔒</div>
             <div>
-              <div class="bp-title">Scraper-proof by design</div>
-              <div class="bp-desc">Scrapers copy static text. The Fern widget is dynamic, authenticated, and tied to your account. It cannot be copied or republished without your permission.</div>
+              <div class="bp-title">Harder to copy than plain text</div>
+              <div class="bp-desc">Scrapers copy static text easily. The Fern widget is dynamic and tied to your account, which makes it significantly harder to rip and republish — and every interaction always credits and links back to you.</div>
             </div>
           </div>
           <div class="brand-point fade-up">
@@ -632,7 +678,7 @@ footer{background:var(--ink);padding:3rem;color:rgba(255,255,255,.35);}
             <div class="wm-chips">
               <div class="wm-chip">✓ One line of code</div>
               <div class="wm-chip">✓ Your branding</div>
-              <div class="wm-chip">✓ Scraper-proof</div>
+              <div class="wm-chip">✓ Always attributed</div>
               <div class="wm-chip">✓ Links back always</div>
             </div>
           </div>
@@ -645,28 +691,9 @@ footer{background:var(--ink);padding:3rem;color:rgba(255,255,255,.35);}
 <!-- BLOGGERS -->
 <section class="bloggers-section">
   <div class="section-inner">
-    <div class="section-eyebrow fade-up">The blogs families love</div>
-    <h2 class="fade-up">Families are already cooking<br><em>from blogs like these.</em></h2>
-    <p class="section-sub fade-up">Fern families follow and cook from the internet's best food blogs every week. When you list, you join the feed they're already planning dinner from.</p>
-    <div class="blogger-scroll">
-      <div class="blogger-chip">🌾 Half Baked Harvest</div>
-      <div class="blogger-chip">🌱 Minimalist Baker</div>
-      <div class="blogger-chip">🍋 Smitten Kitchen</div>
-      <div class="blogger-chip">💰 Budget Bytes</div>
-      <div class="blogger-chip">🌶 Pinch of Yum</div>
-      <div class="blogger-chip">🎂 Sally's Baking</div>
-      <div class="blogger-chip">⭐ Damn Delicious</div>
-      <div class="blogger-chip">🥗 Cookie and Kate</div>
-      <div class="blogger-chip">🫒 The Mediterranean Dish</div>
-      <div class="blogger-chip">🥢 The Woks of Life</div>
-      <div class="blogger-chip">🥑 Downshiftology</div>
-      <div class="blogger-chip">🌮 Isabel Eats</div>
-      <div class="blogger-chip">💪 Ambitious Kitchen</div>
-      <div class="blogger-chip">🍅 Simply Recipes</div>
-      <div class="blogger-chip">🔬 Serious Eats</div>
-      <div class="blogger-chip">+ hundreds more</div>
-    </div>
-    <p class="fade-up" style="font-size:.7rem;color:var(--muted);margin-top:1rem;opacity:.75;">Blog names shown are examples of popular food blogs Fern families follow and cook from. Appearance here does not imply partnership with or endorsement by these creators.</p>
+    <div class="section-eyebrow fade-up">Be among the first</div>
+    <h2 class="fade-up">Early listings get<br><em>the most visibility.</em></h2>
+    <p class="section-sub fade-up">Blogger Cookbook is a new feed inside Fern — the earlier you're listed, the less competition there is for a family's attention when they're deciding what to follow.</p>
   </div>
 </section>
 
@@ -678,8 +705,8 @@ footer{background:var(--ink);padding:3rem;color:rgba(255,255,255,.35);}
     <div class="steps">
       <div class="step fade-up">
         <div class="step-num">1</div>
-        <h4>Get listed free</h4>
-        <p>We add your blog to Blogger Cookbook. Your name, specialty, and content featured for families to discover and follow.</p>
+        <h4>Apply, free</h4>
+        <p>Submit your blog for review. Once approved, your name, specialty, and content are featured for families to discover and follow.</p>
       </div>
       <div class="step fade-up">
         <div class="step-num">2</div>
@@ -708,28 +735,33 @@ footer{background:var(--ink);padding:3rem;color:rgba(255,255,255,.35);}
       Join the cookbook
     </div>
     <h2 class="fade-up">Your recipes cooked.<br>Your scrapers fought.<br><em>Your 30% paid.</em></h2>
-    <p class="fade-up">Listing is free. Revenue share starts from day one. No contract. Your content stays yours — we just help it reach the kitchens that will actually use it.</p>
+    <p class="fade-up">Applying is free, and approval is quick. Once approved, revenue share starts from day one. No contract. Your content stays yours — we just help it reach the kitchens that will actually use it.</p>
     <div style="display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;" class="fade-up">
-      <a href="https://app.bloggercookbook.com/?page=signup" class="btn-primary">Get your recipes listed — free →</a>
-      <a href="mailto:hello@clickpickandcook.com" class="btn-ghost">Talk to us first</a>
+      <a href="https://app.bloggercookbook.com/?page=signup" class="btn-primary">Apply to get listed — free →</a>
+      <a href="mailto:hello@bloggercookbook.com" class="btn-ghost">Talk to us first</a>
     </div>
     <p class="fade-up" style="color:rgba(245,240,232,.25);font-size:.75rem;margin-top:1.5rem;">Free to list · 30% revenue share · No contract · Your content stays yours</p>
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="footer-inner">
     <div>
       <div class="footer-logo">blogger cookbook</div>
-      <div style="font-size:.75rem;margin-top:.3rem;">Powered by <a href="https://clickpickandcook.com" style="color:var(--leaf);text-decoration:none;">Fern</a> Personal AI</div>
+      <div style="font-size:.75rem;margin-top:.3rem;">Powered by <a href="https://myaifern.com" style="color:var(--leaf);text-decoration:none;">Fern</a> Personal AI</div>
     </div>
     <div class="footer-links">
       <a href="#reach">Reach</a>
       <a href="#scrapers">Scrapers</a>
       <a href="#revenue">Revenue</a>
       <a href="#brandstudio">Brand Studio</a>
-      <a href="https://clickpickandcook.com">Fern for families</a>
-      <a href="mailto:hello@clickpickandcook.com">Contact</a>
+      <a href="https://myaifern.com">Fern for families</a>
+      <a href="/about">About</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/contact">Contact</a>
     </div>
   </div>
   <div class="footer-bottom">© 2026 Blogger Cookbook · Fern · Click Pick & Cook. Your recipes. Their kitchens. Your money.</div>
@@ -743,6 +775,9 @@ var observer = new IntersectionObserver(function(entries){
 fadeEls.forEach(function(el){observer.observe(el);});
 document.querySelectorAll('.hero .fade-up').forEach(function(el,i){
   setTimeout(function(){el.classList.add('visible');},i*120);
+});
+document.querySelectorAll('.nav-links a').forEach(function(link){
+  link.addEventListener('click', function(){ document.querySelector('.nav-links').classList.remove('open'); });
 });
 </script>
 </body>
